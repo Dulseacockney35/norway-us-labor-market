@@ -1,0 +1,91 @@
+country,year,industry_code,industry,employment_count,employment_pct
+Norway,2010,Financial and insurance activities,Finance,51400.0,2.01
+Norway,2010,Information and communcation,Technology,85800.0,3.36
+Norway,2010,Manufacturing,Manufacturing,231800.0,9.07
+Norway,2010,"Professional, scientific and and technical activities",Professional Services,122700.0,4.8
+Norway,2010,Total industry,Total,2555300.0,100.0
+Norway,2011,Financial and insurance activities,Finance,50200.0,1.94
+Norway,2011,Information and communcation,Technology,87000.0,3.36
+Norway,2011,Manufacturing,Manufacturing,230700.0,8.9
+Norway,2011,"Professional, scientific and and technical activities",Professional Services,124300.0,4.79
+Norway,2011,Total industry,Total,2592400.0,100.0
+Norway,2012,Financial and insurance activities,Finance,50100.0,1.89
+Norway,2012,Information and communcation,Technology,88600.0,3.35
+Norway,2012,Manufacturing,Manufacturing,233500.0,8.83
+Norway,2012,"Professional, scientific and and technical activities",Professional Services,127400.0,4.82
+Norway,2012,Total industry,Total,2645300.0,100.0
+Norway,2013,Financial and insurance activities,Finance,49500.0,1.85
+Norway,2013,Information and communcation,Technology,89600.0,3.35
+Norway,2013,Manufacturing,Manufacturing,236000.0,8.82
+Norway,2013,"Professional, scientific and and technical activities",Professional Services,130100.0,4.86
+Norway,2013,Total industry,Total,2675600.0,100.0
+Norway,2014,Financial and insurance activities,Finance,49100.0,1.82
+Norway,2014,Information and communcation,Technology,91800.0,3.4
+Norway,2014,Manufacturing,Manufacturing,236900.0,8.77
+Norway,2014,"Professional, scientific and and technical activities",Professional Services,132200.0,4.89
+Norway,2014,Total industry,Total,2701500.0,100.0
+Norway,2015,Financial and insurance activities,Finance,48300.0,1.78
+Norway,2015,Information and communcation,Technology,93100.0,3.43
+Norway,2015,Manufacturing,Manufacturing,229700.0,8.47
+Norway,2015,"Professional, scientific and and technical activities",Professional Services,133200.0,4.91
+Norway,2015,Total industry,Total,2712300.0,100.0
+Norway,2016,Financial and insurance activities,Finance,47800.0,1.76
+Norway,2016,Information and communcation,Technology,92600.0,3.4
+Norway,2016,Manufacturing,Manufacturing,219800.0,8.08
+Norway,2016,"Professional, scientific and and technical activities",Professional Services,131400.0,4.83
+Norway,2016,Total industry,Total,2719800.0,100.0
+Norway,2017,Financial and insurance activities,Finance,47200.0,1.72
+Norway,2017,Information and communcation,Technology,93800.0,3.41
+Norway,2017,Manufacturing,Manufacturing,216100.0,7.85
+Norway,2017,"Professional, scientific and and technical activities",Professional Services,132700.0,4.82
+Norway,2017,Total industry,Total,2751400.0,100.0
+Norway,2018,Financial and insurance activities,Finance,46900.0,1.68
+Norway,2018,Information and communcation,Technology,97100.0,3.47
+Norway,2018,Manufacturing,Manufacturing,219000.0,7.83
+Norway,2018,"Professional, scientific and and technical activities",Professional Services,138200.0,4.94
+Norway,2018,Total industry,Total,2796900.0,100.0
+Norway,2019,Financial and insurance activities,Finance,47300.0,1.66
+Norway,2019,Information and communcation,Technology,102000.0,3.59
+Norway,2019,Manufacturing,Manufacturing,223900.0,7.88
+Norway,2019,"Professional, scientific and and technical activities",Professional Services,143400.0,5.05
+Norway,2019,Total industry,Total,2841100.0,100.0
+Norway,2020,Financial and insurance activities,Finance,47900.0,1.71
+Norway,2020,Information and communcation,Technology,100600.0,3.59
+Norway,2020,Manufacturing,Manufacturing,219400.0,7.84
+Norway,2020,"Professional, scientific and and technical activities",Professional Services,143000.0,5.11
+Norway,2020,Total industry,Total,2799000.0,100.0
+Norway,2021,Financial and insurance activities,Finance,49000.0,1.73
+Norway,2021,Information and communcation,Technology,106500.0,3.76
+Norway,2021,Manufacturing,Manufacturing,219200.0,7.75
+Norway,2021,"Professional, scientific and and technical activities",Professional Services,145700.0,5.15
+Norway,2021,Total industry,Total,2829400.0,100.0
+Norway,2022,Financial and insurance activities,Finance,50300.0,1.71
+Norway,2022,Information and communcation,Technology,115200.0,3.92
+Norway,2022,Manufacturing,Manufacturing,224800.0,7.65
+Norway,2022,"Professional, scientific and and technical activities",Professional Services,153900.0,5.24
+Norway,2022,Total industry,Total,2937600.0,100.0
+Norway,2023,Financial and insurance activities,Finance,52300.0,1.76
+Norway,2023,Information and communcation,Technology,118600.0,3.99
+Norway,2023,Manufacturing,Manufacturing,227600.0,7.65
+Norway,2023,"Professional, scientific and and technical activities",Professional Services,160400.0,5.39
+Norway,2023,Total industry,Total,2973300.0,100.0
+Norway,2024,Financial and insurance activities,Finance,54300.0,1.81
+Norway,2024,Information and communcation,Technology,118900.0,3.97
+Norway,2024,Manufacturing,Manufacturing,230300.0,7.69
+Norway,2024,"Professional, scientific and and technical activities",Professional Services,162700.0,5.44
+Norway,2024,Total industry,Total,2993000.0,100.0
+United States,2010,51,Technology,2707083.3333333335,2.09
+United States,2011,51,Technology,2672916.6666666665,2.04
+United States,2012,51,Technology,2674916.6666666665,2.0
+United States,2013,51,Technology,2704750.0,1.98
+United States,2014,51,Technology,2726500.0,1.96
+United States,2015,51,Technology,2750000.0,1.94
+United States,2016,51,Technology,2793750.0,1.94
+United States,2017,51,Technology,2812250.0,1.92
+United States,2018,51,Technology,2837416.6666666665,1.91
+United States,2019,51,Technology,2863750.0,1.9
+United States,2020,51,Technology,2719666.6666666665,1.91
+United States,2021,51,Technology,2856666.6666666665,1.98
+United States,2022,51,Technology,3062666.6666666665,2.02
+United States,2023,51,Technology,3007416.6666666665,1.93
+United States,2024,51,Technology,2922333.3333333335,1.86

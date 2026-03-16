@@ -1,0 +1,61 @@
+country,year,industry_code,industry,wage_local,wage_local_currency,wage_annual_usd_ppp
+Norway,2010,Information and communcation,Technology,519417.0,NOK_annual,53383.0
+Norway,2011,Information and communcation,Technology,544517.0,NOK_annual,54670.0
+Norway,2012,Information and communcation,Technology,566738.0,NOK_annual,55891.0
+Norway,2013,Information and communcation,Technology,584275.0,NOK_annual,57058.0
+Norway,2014,Information and communcation,Technology,602734.0,NOK_annual,58461.0
+Norway,2015,Information and communcation,Technology,621557.0,NOK_annual,60228.0
+Norway,2016,Information and communcation,Technology,635400.0,NOK_annual,61037.0
+Norway,2017,Information and communcation,Technology,655800.0,NOK_annual,62457.0
+Norway,2018,Information and communcation,Technology,668744.0,NOK_annual,63089.0
+Norway,2019,Information and communcation,Technology,687931.0,NOK_annual,64413.0
+Norway,2020,Information and communcation,Technology,709125.0,NOK_annual,66088.0
+Norway,2021,Information and communcation,Technology,739953.0,NOK_annual,68136.0
+Norway,2022,Information and communcation,Technology,765712.0,NOK_annual,69295.0
+Norway,2023,Information and communcation,Technology,803288.0,NOK_annual,71658.0
+Norway,2024,Information and communcation,Technology,847065.0,NOK_annual,74631.0
+Norway,2010,"Professional, scientific and and technical activities",Professional Services,445363.0,NOK_annual,45772.0
+Norway,2011,"Professional, scientific and and technical activities",Professional Services,464023.0,NOK_annual,46589.0
+Norway,2012,"Professional, scientific and and technical activities",Professional Services,490887.0,NOK_annual,48411.0
+Norway,2013,"Professional, scientific and and technical activities",Professional Services,519416.0,NOK_annual,50724.0
+Norway,2014,"Professional, scientific and and technical activities",Professional Services,535696.0,NOK_annual,51959.0
+Norway,2015,"Professional, scientific and and technical activities",Professional Services,550871.0,NOK_annual,53379.0
+Norway,2016,"Professional, scientific and and technical activities",Professional Services,552458.0,NOK_annual,53070.0
+Norway,2017,"Professional, scientific and and technical activities",Professional Services,561982.0,NOK_annual,53522.0
+Norway,2018,"Professional, scientific and and technical activities",Professional Services,580991.0,NOK_annual,54811.0
+Norway,2019,"Professional, scientific and and technical activities",Professional Services,602901.0,NOK_annual,56451.0
+Norway,2020,"Professional, scientific and and technical activities",Professional Services,609783.0,NOK_annual,56830.0
+Norway,2021,"Professional, scientific and and technical activities",Professional Services,646012.0,NOK_annual,59485.0
+Norway,2022,"Professional, scientific and and technical activities",Professional Services,676368.0,NOK_annual,61210.0
+Norway,2023,"Professional, scientific and and technical activities",Professional Services,709495.0,NOK_annual,63291.0
+Norway,2024,"Professional, scientific and and technical activities",Professional Services,747388.0,NOK_annual,65849.0
+Norway,2010,Total industry,Total,359090.0,NOK_annual,36905.0
+Norway,2011,Total industry,Total,375933.0,NOK_annual,37744.0
+Norway,2012,Total industry,Total,391533.0,NOK_annual,38613.0
+Norway,2013,Total industry,Total,408785.0,NOK_annual,39920.0
+Norway,2014,Total industry,Total,420904.0,NOK_annual,40825.0
+Norway,2015,Total industry,Total,432060.0,NOK_annual,41866.0
+Norway,2016,Total industry,Total,437542.0,NOK_annual,42031.0
+Norway,2017,Total industry,Total,447555.0,NOK_annual,42624.0
+Norway,2018,Total industry,Total,461423.0,NOK_annual,43530.0
+Norway,2019,Total industry,Total,478529.0,NOK_annual,44806.0
+Norway,2020,Total industry,Total,488998.0,NOK_annual,45573.0
+Norway,2021,Total industry,Total,511843.0,NOK_annual,47131.0
+Norway,2022,Total industry,Total,532564.0,NOK_annual,48196.0
+Norway,2023,Total industry,Total,560226.0,NOK_annual,49976.0
+Norway,2024,Total industry,Total,590347.0,NOK_annual,52013.0
+United States,2010,51,Technology,30.560000000000002,USD_hourly,63565.0
+United States,2011,51,Technology,31.59583333333333,USD_hourly,65719.0
+United States,2012,51,Technology,31.781666666666666,USD_hourly,66106.0
+United States,2013,51,Technology,32.919999999999995,USD_hourly,68474.0
+United States,2014,51,Technology,34.04333333333333,USD_hourly,70810.0
+United States,2015,51,Technology,35.11,USD_hourly,73029.0
+United States,2016,51,Technology,36.718333333333334,USD_hourly,76374.0
+United States,2017,51,Technology,38.285833333333336,USD_hourly,79635.0
+United States,2018,51,Technology,40.03666666666667,USD_hourly,83276.0
+United States,2019,51,Technology,42.19916666666666,USD_hourly,87774.0
+United States,2020,51,Technology,43.794999999999995,USD_hourly,91094.0
+United States,2021,51,Technology,44.445,USD_hourly,92446.0
+United States,2022,51,Technology,46.57750000000001,USD_hourly,96881.0
+United States,2023,51,Technology,48.39333333333334,USD_hourly,100658.0
+United States,2024,51,Technology,50.08166666666667,USD_hourly,104170.0
