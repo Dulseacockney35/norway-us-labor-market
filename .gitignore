@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Environment variables (never commit secrets)
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (raw API responses can be large)
+data/raw/
+
+# OS
+.DS_Store
