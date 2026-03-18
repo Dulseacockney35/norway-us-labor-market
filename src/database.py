@@ -1,14 +1,6 @@
-"""
-database.py
------------
-Create PostgreSQL tables and load cleaned CSVs into the database.
-
-Requires PostgreSQL running locally and a .env file with DB credentials.
-Run create_tables.sql first, then this script to load data.
-
-Usage:
-    python src/database.py
-"""
+# Loads cleaned CSVs into PostgreSQL.
+# Run sql/create_tables.sql first to set up the schema, then run this script.
+# Requires .env with DB_HOST, DB_PORT, DB_NAME, DB_USER, DB_PASSWORD.
 
 import pandas as pd
 from sqlalchemy import create_engine, text

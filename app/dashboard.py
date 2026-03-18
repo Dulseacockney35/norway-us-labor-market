@@ -1,11 +1,6 @@
-"""
-dashboard.py
-------------
-Interactive Streamlit dashboard: Norway vs. US Labor Market Comparison.
-
-Loads data from data/processed/ CSVs (no database needed for demo).
-Run:  streamlit run app/dashboard.py
-"""
+# Streamlit dashboard: Norway vs. US Labor Market Comparison (2010-2024)
+# Loads from data/processed/ CSVs — no database needed.
+# Run: streamlit run app/dashboard.py
 
 import streamlit as st
 import pandas as pd
@@ -19,8 +14,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 PROCESSED_DIR = os.path.join(os.path.dirname(__file__), "..", "data", "processed")
 
-# ── Color scheme ──────────────────────────────────────────────────────────────
-# Blue for Norway (matches Norwegian flag), red for US (matches US flag)
+# Norway blue, US red — matches their flags
 COLORS = {"Norway": "#003087", "United States": "#B22234"}
 
 st.set_page_config(
@@ -51,7 +45,6 @@ def check_data_exists():
     return os.path.exists(path)
 
 
-# ── Header ────────────────────────────────────────────────────────────────────
 st.title("Norway vs. United States: Labor Market Comparison")
 st.markdown(
     "Comparing employment, wages, and unemployment trends between Norway and the US "
@@ -73,7 +66,6 @@ if unemployment is None or wages is None or employment is None:
     st.error("One or more data files are missing. Check data/processed/")
     st.stop()
 
-# ── Sidebar filters ───────────────────────────────────────────────────────────
 st.sidebar.header("Filters")
 
 min_year = int(unemployment["year"].min())
@@ -92,12 +84,11 @@ st.sidebar.markdown(
     "Wages are PPP-adjusted to 2023 international dollars using OECD conversion factors."
 )
 
-# Apply year filter
+# filter all three datasets to the selected year range
 unemp_filtered  = unemployment[unemployment["year"].between(*year_range)]
 wages_filtered  = wages[wages["year"].between(*year_range)]
 emp_filtered    = employment[employment["year"].between(*year_range)]
 
-# ── Section 1: Unemployment ───────────────────────────────────────────────────
 st.subheader("Unemployment Over Time — Norway Stayed Below 5%, US Hit 9.6%")
 
 fig_unemp = px.line(
@@ -110,7 +101,7 @@ fig_unemp = px.line(
     labels={"year": "Year", "unemployment_rate": "Unemployment Rate (%)", "country": "Country"},
 )
 
-# Shade COVID period
+# highlight the COVID-19 shock period
 fig_unemp.add_vrect(
     x0=2020, x1=2021,
     fillcolor="rgba(255, 200, 0, 0.15)",
@@ -127,7 +118,6 @@ fig_unemp.update_layout(
 )
 st.plotly_chart(fig_unemp, use_container_width=True)
 
-# Key stat callouts
 col1, col2, col3 = st.columns(3)
 us_2020 = unemp_filtered[(unemp_filtered["country"] == "United States") & (unemp_filtered["year"] == 2020)]["unemployment_rate"].values
 no_2020 = unemp_filtered[(unemp_filtered["country"] == "Norway") & (unemp_filtered["year"] == 2020)]["unemployment_rate"].values
@@ -138,7 +128,6 @@ if len(us_2020) > 0 and len(no_2020) > 0:
 
 st.markdown("---")
 
-# ── Section 2: Tech Employment Share ─────────────────────────────────────────
 st.subheader("Tech Sector Employment — Both Countries Growing, Different Starting Points")
 
 tech_emp = emp_filtered[emp_filtered["industry"] == "Technology"]
@@ -164,7 +153,6 @@ fig_emp.update_layout(
 )
 st.plotly_chart(fig_emp, use_container_width=True)
 
-# Show latest year values
 latest_emp = emp_filtered[emp_filtered["industry"] == "Technology"]
 if not latest_emp.empty:
     latest_year = latest_emp["year"].max()
@@ -180,7 +168,6 @@ if not latest_emp.empty:
 
 st.markdown("---")
 
-# ── Section 3: Wage Comparison ────────────────────────────────────────────────
 st.subheader("Tech Wages (PPP-Adjusted USD) — How the Gap Has Changed")
 
 tech_wages = wages_filtered[wages_filtered["industry"] == "Technology"]
@@ -213,7 +200,6 @@ st.caption(
     "US wages: BLS average hourly earnings × 2,080 hours."
 )
 
-# Bar chart: latest year wage comparison by available industries
 st.subheader("Wage Comparison by Industry — Latest Available Year")
 
 industry_wages = wages_filtered[wages_filtered["industry"] != "Total"]
@@ -244,7 +230,6 @@ st.plotly_chart(fig_bar, use_container_width=True)
 
 st.markdown("---")
 
-# ── Section 4: Industry Composition ──────────────────────────────────────────
 st.subheader("Industry Composition — How Different Are the Two Economies?")
 
 latest_year_emp = emp_filtered["year"].max()
@@ -277,10 +262,7 @@ st.plotly_chart(fig_comp, use_container_width=True)
 
 st.markdown("---")
 
-# ── Key Findings ──────────────────────────────────────────────────────────────
 st.subheader("Key Findings")
-
-# Compute dynamic findings from the data
 no_unemp_latest = unemployment[(unemployment["country"] == "Norway") &
                                (unemployment["year"] == unemployment["year"].max())]["unemployment_rate"].values
 us_unemp_latest = unemployment[(unemployment["country"] == "United States") &

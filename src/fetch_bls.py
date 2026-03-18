@@ -1,12 +1,6 @@
-"""
-fetch_bls.py
-------------
-Pull labor market data from the U.S. Bureau of Labor Statistics (BLS) API.
-
-BLS API v2 docs: https://www.bls.gov/developers/
-Register for a free API key at: https://data.bls.gov/registrationEngine/
-Add your key to the .env file as BLS_API_KEY.
-"""
+# Fetches US labor market data from the Bureau of Labor Statistics (BLS) API v2
+# Docs: https://www.bls.gov/developers/
+# Requires a free API key in .env as BLS_API_KEY
 
 import requests
 import pandas as pd
@@ -52,7 +46,6 @@ def fetch_bls_series(series_ids, start_year=2010, end_year=2024):
 
     data = response.json()
 
-    # BLS returns status + Results
     if data.get("status") != "REQUEST_SUCCEEDED":
         print(f"BLS API warning: {data.get('message', 'Unknown error')}")
 
@@ -63,7 +56,6 @@ def fetch_bls_series(series_ids, start_year=2010, end_year=2024):
         json.dump(data, f, indent=2)
     print(f"  Saved raw response to {raw_path}")
 
-    # Parse each series into a DataFrame
     result = {}
     for series in data.get("Results", {}).get("series", []):
         sid = series["seriesID"]
@@ -90,8 +82,6 @@ def fetch_all():
     """
     print("=== Fetching BLS (US) data ===")
 
-    # We need data in two chunks because the series span different categories
-    # BLS v2 allows up to 50 series per request
     all_series = list(SERIES.values())
     series_data = fetch_bls_series(all_series, start_year=2010, end_year=2024)
 

@@ -1,11 +1,6 @@
-"""
-analyze.py
-----------
-Run the SQL queries from sql/queries.sql and return DataFrames.
-These functions are used by the dashboard and the exploration notebook.
-
-Can also be run standalone to print results to the terminal.
-"""
+# SQL query functions for the dashboard and notebook.
+# Each function runs a query against PostgreSQL and returns a DataFrame.
+# If the database isn't available, use the load_*_csv() fallbacks below.
 
 import pandas as pd
 from sqlalchemy import create_engine, text
@@ -128,7 +123,7 @@ def query_tech_wage_premium(engine):
     return pd.read_sql(sql, engine)
 
 
-# ── CSV-based versions (for dashboard without database) ─────────────────────
+# CSV-based fallbacks — used by the dashboard when PostgreSQL isn't available
 
 def load_unemployment_csv():
     path = os.path.join(PROCESSED_DIR, "unemployment_clean.csv")
