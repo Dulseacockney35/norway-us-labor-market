@@ -1,5 +1,7 @@
 # Norway vs. United States: Labor Market Comparison Dashboard
 
+**[Live Dashboard →](https://norway-us-labor-market.streamlit.app/)**
+
 Interactive dashboard comparing employment, wages, and unemployment trends
 between Norway and the United States (2010–2024), with a focus on the
 technology sector. Built with real government data from Statistics Norway
@@ -27,6 +29,22 @@ technology sector. Built with real government data from Statistics Norway
 - **Industry mapping:** Norway NACE code J (Information & Communication) → US NAICS 51 (Information). Not a perfect match — see Limitations.
 - **Wage normalization:** Norwegian monthly NOK wages converted to annual USD using OECD PPP factors (NOK ÷ PPP factor × 12). US hourly wages annualized at 2,080 hours/year.
 - **Time aggregation:** Monthly BLS and SSB data averaged to annual figures for comparability.
+
+## Resume Bullets
+
+```
+Norway–US Labor Market Dashboard | Python, PostgreSQL, Streamlit, Plotly, SSB API, BLS API
+
+- Designed PostgreSQL star schema and ETL pipeline integrating Norwegian (SSB) and US (BLS)
+  government labor data across 15 years and 4 industry sectors; normalized wages across
+  currencies using OECD PPP conversion factors.
+- Built interactive Streamlit dashboard with SQL-driven analysis (window functions: LAG,
+  FIRST_VALUE, AVG OVER) revealing that US tech wages grew 64% vs. Norway's 40% from
+  2010–2024, and that Norway's COVID-19 unemployment peak (4.6%) was 3.5pp below the US (8.1%).
+- Integrated two real government REST APIs (Statistics Norway SSB, U.S. Bureau of Labor
+  Statistics) with different data formats (JSON-stat, BLS v2), mapping ~119K Norwegian ICT
+  workers to ~3M US IT workers using NACE-to-NAICS industry crosswalk.
+```
 
 ## Tech Stack
 
