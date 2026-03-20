@@ -3,6 +3,8 @@ streamlit
 pandas
 plotly
 python-dotenv
+numpy
+scipy
 
 # Data pipeline (local use only)
 requests
