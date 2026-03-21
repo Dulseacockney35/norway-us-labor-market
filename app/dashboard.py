@@ -357,6 +357,75 @@ with col_right:
     with st.expander("View SQL — wage premium ratio (self-join)"):
         st.code(PREMIUM_SQL.strip(), language="sql")
 
+# ── Wage Forecast ─────────────────────────────────────────────────────────────
+
+st.markdown("---")
+st.subheader("Tech Wage Forecast (2025–2028)")
+st.markdown(
+    "Using the 2010–2024 linear trend to project forward. "
+    "The shaded band is a **95% prediction interval** based on how much wages "
+    "deviated from the trend line historically — it widens further out because "
+    "uncertainty compounds over time."
+)
+st.caption(
+    "Model: numpy.polyfit (degree 1). Assumes the current growth rate continues "
+    "with no structural breaks. Treat as directional, not a precise prediction."
+)
+
+forecast_years = np.array([2025, 2026, 2027, 2028])
+fig_fc = go.Figure()
+
+for country, color in COLORS.items():
+    df = wages[(wages["country"] == country) & (wages["industry"] == "Technology")].sort_values("year")
+    x, y = df["year"].values, df["wage_annual_usd_ppp"].values
+
+    m, b  = np.polyfit(x, y, 1)
+    se    = np.std(y - (m * x + b))
+
+    fc_y     = m * forecast_years + b
+    fc_upper = fc_y + 1.96 * se
+    fc_lower = fc_y - 1.96 * se
+    r, g, b_val = int(color[1:3], 16), int(color[3:5], 16), int(color[5:7], 16)
+
+    fig_fc.add_trace(go.Scatter(
+        x=x, y=y, mode="lines+markers", name=country,
+        line=dict(color=color, width=2.5), marker=dict(size=7),
+    ))
+    fig_fc.add_trace(go.Scatter(
+        x=np.concatenate([[x[-1]], forecast_years]),
+        y=np.concatenate([[y[-1]], fc_y]),
+        mode="lines", name=f"{country} forecast",
+        line=dict(color=color, dash="dash", width=2),
+    ))
+    fig_fc.add_trace(go.Scatter(
+        x=np.concatenate([forecast_years, forecast_years[::-1]]),
+        y=np.concatenate([fc_upper, fc_lower[::-1]]),
+        fill="toself", fillcolor=f"rgba({r},{g},{b_val},0.12)",
+        line=dict(width=0), showlegend=False,
+    ))
+
+fig_fc.add_vline(x=2024.5, line_dash="dot", line_color="gray",
+                 annotation_text="forecast →", annotation_position="top right")
+fig_fc.update_layout(
+    template=TEMPLATE, hovermode="x unified", height=H,
+    yaxis_tickprefix="$", yaxis_tickformat=",",
+    xaxis_title="Year", yaxis_title="Annual Wage (PPP-Adjusted USD)",
+    legend_title_text="", margin=dict(t=30, b=20),
+)
+st.plotly_chart(fig_fc, use_container_width=True)
+
+# Forecast summary metrics
+c1, c2, c3 = st.columns(3)
+us_df = wages[(wages["country"] == "United States") & (wages["industry"] == "Technology")].sort_values("year")
+no_df = wages[(wages["country"] == "Norway") & (wages["industry"] == "Technology")].sort_values("year")
+us_m, us_b = np.polyfit(us_df["year"].values, us_df["wage_annual_usd_ppp"].values, 1)
+no_m, no_b = np.polyfit(no_df["year"].values, no_df["wage_annual_usd_ppp"].values, 1)
+c1.metric("US annual growth rate", f"${us_m:,.0f}/yr")
+c2.metric("Norway annual growth rate", f"${no_m:,.0f}/yr")
+c3.metric("Projected gap by 2028", f"${(us_m*2028+us_b) - (no_m*2028+no_b):,.0f}", "if trends hold")
+
+st.markdown("---")
+
 # Wages by industry bar
 st.subheader("Wages by Industry — Latest Year in Filter")
 industry_wages = wages_f[wages_f["industry"] != "Total"]
@@ -464,7 +533,17 @@ for col, country in zip([c1, c2], ["Norway", "United States"]):
             f"p = {p:.3f} ({'significant' if p < 0.05 else 'not significant'})",
         )
 
-st.caption("Note: Correlation does not imply causation. A growing tech sector may reflect a healthy economy rather than cause lower unemployment.")
+st.markdown(
+    "**Why does the US show a positive correlation?** This is counterintuitive — "
+    "you'd expect more tech employment to associate with *lower* unemployment. "
+    "The explanation is a common time-series trap: the US tech employment share "
+    "was actually *declining* from 2.09% (2010) to 1.86% (2024), while unemployment "
+    "was also falling from 9.6% to ~4% over the same period. Both variables trended "
+    "downward together, so years with higher tech share (2010–2012) happened to coincide "
+    "with higher post-financial-crisis unemployment. This is a spurious correlation driven "
+    "by the shared recovery trend — not a real relationship between the two variables."
+)
+st.caption("Note: Correlation does not imply causation. This is why the DiD analysis above is more useful — it controls for pre-existing differences and isolates the COVID shock specifically.")
 
 
 # ── Key Findings ──────────────────────────────────────────────────────────────
